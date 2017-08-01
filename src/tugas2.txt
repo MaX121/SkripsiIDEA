@@ -1,0 +1,102 @@
+
+# Setting test for ONE intact Connection Mode
+
+
+#Scenario information
+Scenario.name = connection-Rank-simpleTugas
+Scenario.simulateConnections = false
+Scenario.updateInterval = 1 
+
+
+
+Scenario.endTime = 6413284
+#987529 Haggle Cam
+#274883 Haggle
+#16981816 Reality
+#6413284 Sassy
+
+Report.warmup = 1
+Scenario.nrofHostGroups = 1
+
+
+#Interfaces informations
+btInterface.type = SimpleBroadcastInterface
+btInterface.transmitSpeed = 250k
+btInterface.transmitRange = 10
+btInterface.scanInterval = 120
+
+
+#Group Information
+## Buffer Size : 200 messages of 10 K ~ 2M; 20M = unlimited
+Group.bufferSize = 20M
+
+
+### ROUTER PART
+
+## Bubble Rap (OLD VERSION as REFERENCE ONLY)
+Group.router = DecisionEngineRouter
+DecisionEngineRouter.decisionEngine = community.DistributedBubbleRap
+DecisionEngineRouter.communityDetectAlg = routing.community.SimpleCommunityDetection
+DecisionEngineRouter.K = 5
+DecisionEngineRouter.familiarThreshold = 700
+DecisionEngineRouter.centralityAlg = routing.community.SWindowCentrality
+
+
+## TTL 24 hours=1440, 1 week= 10080, 3 weeks= 30240, 5 weeks= 50400
+Group.msgTtl = 30240
+Group.nrofInterfaces = 1
+Group.interface1 = btInterface
+
+#Group1 Information
+Group1.groupID = A
+Group1.waitTime = 10, 30 
+Group1.speed = 0.8, 1.4
+
+Group1.nrofHosts = 25
+#36 Haggle Cam
+#41 Haggle
+#97 Reality
+#25 Sassy
+
+Group1.nodeLocation = 10, 10
+Group1.movementModel = StationaryMovement
+
+#How many event generator
+Events.nrof = 2
+
+## Trace information
+Events1.class = ExternalEventsQueue
+Events1.filePath = sassy.csv
+
+## Message creation parameters
+Events2.class = MessageEventGenerator
+Events2.interval = 580, 620  
+Events2.size = 10k
+
+## range of message source/destination address 
+Events2.hosts = 0, 24
+
+# 0, 35 Haggle Cam
+# 0,40 Haggle
+# 0,96 Reality
+# 0,24 Sassy
+
+Events2.prefix = M
+
+# World's size for Movement Models without implicit size (width, height; meters)
+MovementModel.worldSize = 100, 100
+
+# seed for movement models' pseudo random number generator (default = 0)
+MovementModel.rngSeed = [2; 8372; 98092; 18293; 777]
+
+
+#ReportsInformations (Number of Report generated)
+Report.nrofReports = 4
+
+Report.reportDir = reports/SassyTugas
+
+#Report for intrinsic popularity
+Report.report1 = MessageStatsReport
+Report.report2 = BufferOccupancyReport
+Report.report3 = MessageReceivedReport
+Report.report4 = BufferOverflowReport

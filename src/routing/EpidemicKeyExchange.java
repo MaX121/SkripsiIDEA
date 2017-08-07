@@ -26,7 +26,6 @@ public class EpidemicKeyExchange implements RoutingDecisionEngine {
         // delete old messages, preventing ConcurrentModificationException
         for (Message m : myDeletedMessage) {
             myHost.getMessageCollection().remove(m);
-            System.out.println("Deleting " + m);
         }
 
     }

@@ -24,10 +24,8 @@ public class EpidemicRouterRevised implements RoutingDecisionEngine {
         }
 
         // delete old messages, preventing ConcurrentModificationException
-        for (Message message : myDeletedMessage) {
-            myHost.getMessageCollection().remove(message);
-            System.out.println("Deleting " + message);
-        }
+        for (Message message : myDeletedMessage)  myHost.getMessageCollection().remove(message);
+        System.out.println(myHost.getMessageCollection());
     }
 
     @Override
@@ -46,12 +44,6 @@ public class EpidemicRouterRevised implements RoutingDecisionEngine {
                 this.shouldSaveReceivedMessage(message, peer);
             }
         }
-    }
-
-    private Message getMessageById(String messageId, Collection<Message> partnerMessage) {
-        for (Message message : partnerMessage) { // linear search for msg collection
-            if (message.getId().equals(messageId)) return message; // return message
-        } return null; // if not exist, return null
     }
 
     @Override public boolean newMessage(Message m) { return true; }

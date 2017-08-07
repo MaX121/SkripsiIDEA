@@ -271,11 +271,13 @@ public class DecisionEngineRouter extends ActiveRouter {
     @Override
     protected void transferDone(Connection con) {
         Message transferred = this.getMessage(con.getMessage().getId());
-        for (Iterator<Tuple<Message, Connection>> i = outgoingMessages.iterator(); i.hasNext();) {
-            Tuple<Message, Connection> t = i.next();
-            if (t.getKey().getId().equals(transferred.getId()) && t.getValue().equals(con)) {
-                i.remove();
-                break;
+        if (transferred != null) {
+            for (Iterator<Tuple<Message, Connection>> i = outgoingMessages.iterator(); i.hasNext();) {
+                Tuple<Message, Connection> t = i.next();
+                if (t.getKey().getId().equals(transferred.getId()) && t.getValue().equals(con)) {
+                    i.remove();
+                    break;
+                }
             }
         }
 

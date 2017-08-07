@@ -1,0 +1,537 @@
+connection-wald.txt:#Events1.filePath = RealityConnectionTraceFinal.txt
+connection-wald.txt:#RealityConnectionTraceFinal.txt
+toolkit/dtnsim2patches/EpidemicKnowledgeHandler.java.diff:< 			network.vprint("Removing copy of " + m + " - ACKed or delivered to final destination.");
+toolkit/dtnsim2patches/EpidemicKnowledgeHandler.java.diff:> 			// ACKed or delivered to final destination.
+toolkit/dtnsim2patches/DummyEpidemicHandler.java.diff:< 			network.vprint("Removing copy of " + m + " - ACKed or delivered to final destination.");
+toolkit/dtnsim2patches/DummyEpidemicHandler.java.diff:> 			// ACKed or delivered to final destination.
+toolkit/ccdfPlotter.pl:			my $finalValue;
+toolkit/ccdfPlotter.pl:				$finalValue = 1 - ( $cumSum / $totalSum );
+toolkit/ccdfPlotter.pl:				$finalValue = ( $cumSum / $totalSum );
+toolkit/ccdfPlotter.pl:			print OUTFILE "$time ", $finalValue, "\n";
+core/package.html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+core/World.java:	public static final String SETTINGS_NS = "Optimization";
+core/World.java:	public static final String CELL_SIZE_MULT_S = "cellSizeMult";
+core/World.java:	public static final String RANDOMIZE_UPDATES_S = "randomizeUpdateOrder";
+core/World.java:	public static final int DEF_CON_CELL_SIZE_MULT = 5;
+core/World.java:	public static final boolean DEF_RANDOMIZE_UPDATES = true;
+core/World.java:		double finalStep = -SimClock.getTime();
+core/World.java:		moveHosts(finalStep);
+core/ArithmeticCondition.java:	private static final String VALID_OPERATORS = "><=";
+core/Settings.java.bak:	public static final String DEF_SETTINGS_FILE ="default_settings.txt";
+core/Settings.java.bak:	public static final String SETTING_OUTPUT_S = "Settings.output";
+core/Settings.java.bak:	public static final String FILL_DELIMITER = "%%";
+core/Settings.java.bak:		final String RUN_ARRAY_START = "[";
+core/Settings.java.bak:		final String RUN_ARRAY_END = "]";
+core/Settings.java.bak:		final String RUN_ARRAY_DELIM = ";";
+core/Settings.java.bak:		final int MIN_LENGTH = 3; // minimum run is one value. e.g. "[v]"
+core/Connection.java:	 * (but then e.g. {@link #finalizeTransfer()} and 
+core/Connection.java:	 * Finalizes the transfer of the currently transferred message.
+core/Connection.java:	public void finalizeTransfer() {
+core/Connection.java:		assert this.msgOnFly != null : "Nothing to finalize in " + this;
+core/Message.java:	public static final int INFINITE_TTL = -1;
+core/DTNHost.java:	 * (e.g. the message got delivered to final destination). This effects the
+core/VBRConnection.java:	 * (but then e.g. {@link #finalizeTransfer()} and 
+core/Settings.java:	public static final String DEF_SETTINGS_FILE ="default_settings.txt";
+core/Settings.java:	public static final String SETTING_OUTPUT_S = "Settings.output";
+core/Settings.java:	public static final String FILL_DELIMITER = "%%";
+core/Settings.java:		final String RUN_ARRAY_START = "[";
+core/Settings.java:		final String RUN_ARRAY_END = "]";
+core/Settings.java:		final String RUN_ARRAY_DELIM = ";";
+core/Settings.java:		final int MIN_LENGTH = 3; // minimum run is one value. e.g. "[v]"
+core/MessageListener.java:	 * @param firstDelivery Was the target node final destination of the message
+core/SimScenario.java:	public static final String SCENARIO_NS = "Scenario";
+core/SimScenario.java:	public static final String NROF_GROUPS_S = "nrofHostGroups";
+core/SimScenario.java:	public static final String NROF_INTTYPES_S = "nrofInterfaceTypes";
+core/SimScenario.java:	public static final String NAME_S = "name";
+core/SimScenario.java:	public static final String END_TIME_S = "endTime";
+core/SimScenario.java:	public static final String UP_INT_S = "updateInterval";
+core/SimScenario.java:	public static final String SIM_CON_S = "simulateConnections";
+core/SimScenario.java:	public static final String INTTYPE_NS = "Interface";
+core/SimScenario.java:	public static final String INTTYPE_S = "type";
+core/SimScenario.java:	public static final String INTNAME_S = "name";
+core/SimScenario.java:	public static final String APPTYPE_NS = "Application";
+core/SimScenario.java:	public static final String APPTYPE_S = "type";
+core/SimScenario.java:	public static final String APPCOUNT_S = "nrofApplications";
+core/SimScenario.java:	public static final String GROUP_NS = "Group";
+core/SimScenario.java:	public static final String GROUP_ID_S = "groupID";
+core/SimScenario.java:	public static final String NROF_HOSTS_S = "nrofHosts";
+core/SimScenario.java:	public static final String SCAN_INTERVAL_S = "scanInterval";
+core/SimScenario.java:	public static final String MOVEMENT_MODEL_S = "movementModel";
+core/SimScenario.java:	public static final String ROUTER_S = "router";
+core/SimScenario.java:	public static final String NROF_INTERF_S = "nrofInterfaces";
+core/SimScenario.java:	public static final String INTERFACENAME_S = "interface";
+core/SimScenario.java:	public static final String GAPPNAME_S = "application";
+core/SimScenario.java:	private static final String MM_PACKAGE = "movement.";
+core/SimScenario.java:	private static final String ROUTING_PACKAGE = "routing.";
+core/SimScenario.java:	private static final String INTTYPE_PACKAGE = "interfaces.";
+core/SimScenario.java:	private static final String APP_PACKAGE = "applications.";
+core/DTNSim.java:	public static final String BATCH_MODE_FLAG = "-b";
+core/DTNSim.java:	public static final String RANGE_DELIMETER = ":";
+core/DTNSim.java:	public static final String RESET_METHOD_NAME = "reset";
+core/CBRConnection.java:	 * (but then e.g. {@link #finalizeTransfer()} and 
+core/NetworkInterface.java:	public static final String TRANSMIT_RANGE_S = "transmitRange";
+core/NetworkInterface.java:	public static final String TRANSMIT_SPEED_S = "transmitSpeed";
+core/NetworkInterface.java:	public static final String SCAN_INTERVAL_S = "scanInterval";
+core/NetworkInterface.java:	public static final String SCAN_INTERVAL_ID = "Network.scanInterval";
+core/NetworkInterface.java:	public static final String RANGE_ID = "Network.radioRange";
+core/NetworkInterface.java:	public static final String SPEED_ID = "Network.speed";
+core/NetworkInterface.java:	private static final int CON_UP = 1;
+core/NetworkInterface.java:	private static final int CON_DOWN = 2;
+README.txt:finally an image file containing the graphics. One bar is created to the plot 
+LICENSE.txt:  Finally, every program is threatened constantly by software patents.
+LICENSE.txt:finally terminates your license, and (b) permanently, if the copyright
+applications/PingApplication.java:	public static final String PING_PASSIVE = "passive";
+applications/PingApplication.java:	public static final String PING_INTERVAL = "interval";
+applications/PingApplication.java:	public static final String PING_OFFSET = "offset";
+applications/PingApplication.java:	public static final String PING_DEST_RANGE = "destinationRange";
+applications/PingApplication.java:	public static final String PING_SEED = "seed";
+applications/PingApplication.java:	public static final String PING_PING_SIZE = "pingSize";
+applications/PingApplication.java:	public static final String PING_PONG_SIZE = "pongSize";
+applications/PingApplication.java:	public static final String APP_ID = "fi.tkk.netlab.PingApplication";
+ui/package.html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+ui/DTNSimTextUI.java:	public static final long UI_UP_INTERVAL = 60000;
+ui/DTNSimTextUI.java:		this.update(true); // force final UI update
+ui/DTNSimUI.java:	public static final String NROF_REPORT_S = "Report.nrofReports";
+ui/DTNSimUI.java:	public static final String REPORT_S = "Report.report";
+ui/DTNSimUI.java:	public static final String MM_WARMUP_S = 
+ui/DTNSimUI.java:	private static final String REPORT_PAC = "report.";
+gui/package.html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+gui/NodeChooser.java:	public static final int MAX_NODE_COUNT = 500;
+gui/NodeChooser.java:	private static final String HOST_KEY = "host";
+gui/DTNSimGUI.java:							"Some reports may have not been finalized.");
+gui/DTNSimGUI.java:		this.update(true); // force final GUI update
+gui/EventLogPanel.java:	private static final String PANEL_TITLE = "Event log";
+gui/EventLogPanel.java:	private static final String ENTRY_FORMAT = "% 9.1f: %s "; 
+gui/EventLogPanel.java:	private static final int FONT_SIZE = 12;
+gui/EventLogPanel.java:	private static final String FONT_TYPE = "monospaced";
+gui/EventLogPanel.java:	private static final Color LOG_BUTTON_BG = Color.WHITE;
+gui/EventLogPanel.java:	private static final String HOST_DELIM = "<->";
+gui/EventLogPanel.java:	private static final Color HIGHLIGHT_BG_COLOR = Color.GREEN;
+gui/EventLogPanel.java:	private static final String HOST_PROP = "host";
+gui/EventLogPanel.java:	private static final String MSG_PROP = "message";
+gui/EventLogPanel.java:	public static final int LOG_UP_INTERVAL = 500;
+gui/EventLogPanel.java:	private void processEvent(EventLogControl check, final String name,
+gui/EventLogPanel.java:			final DTNHost host1, final DTNHost host2, final Message message) {
+gui/EventLogControlPanel.java:	private static final String TITLE_TEXT = "Event log controls";
+gui/EventLogControlPanel.java:	private static final String SHOW_TEXT = "show";
+gui/EventLogControlPanel.java:	private static final String PAUSE_TEXT = "pause";
+gui/EventLogControlPanel.java:	private static final int PADDING = 5;
+gui/playfield/package.html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+gui/playfield/PathGraphic.java:	private final static Color PATH_COLOR = Color.RED;
+gui/playfield/NodeGraphic.java:		final int BAR_HEIGHT = 5;
+gui/playfield/NodeGraphic.java:		final int BAR_WIDTH = 5;
+gui/playfield/NodeGraphic.java:		final int BAR_DISPLACEMENT = 2;
+gui/playfield/ScaleReferenceGraphic.java:	private final int LENGTH = 100; 
+gui/playfield/ScaleReferenceGraphic.java:	private final int X_POS = 20;
+gui/playfield/ScaleReferenceGraphic.java:	private final int Y_POS = 20;
+gui/playfield/ScaleReferenceGraphic.java:	private final int SIZE = 8; 
+gui/playfield/ScaleReferenceGraphic.java:	private final int FONT_SIZE = 10;
+gui/playfield/ScaleReferenceGraphic.java:	private final Color REF_COLOR = Color.BLACK;
+gui/playfield/MapGraphic.java:	private final Color PATH_COLOR = Color.LIGHT_GRAY;
+gui/playfield/MapGraphic.java:	private final Color BG_COLOR = Color.WHITE;
+gui/GUIControls.java:	private static final String PATH_GRAPHICS = "buttonGraphics/";
+gui/GUIControls.java:	private static final String ICON_PAUSE = "Pause16.gif";
+gui/GUIControls.java:	private static final String ICON_PLAY = "Play16.gif";
+gui/GUIControls.java:	private static final String ICON_ZOOM = "Zoom24.gif";
+gui/GUIControls.java:	private static final String ICON_STEP = "StepForward16.gif"; 
+gui/GUIControls.java:	private static final String ICON_FFW = "FastForward16.gif";
+gui/GUIControls.java:	private static final String TEXT_PAUSE = "pause simulation";
+gui/GUIControls.java:	private static final String TEXT_PLAY = "play simulation";
+gui/GUIControls.java:	private static final String TEXT_PLAY_UNTIL = "play simulation until sim time...";
+gui/GUIControls.java:	private static final String TEXT_STEP = "step forward one interval";
+gui/GUIControls.java:	private static final String TEXT_FFW = "enable/disable fast forward";
+gui/GUIControls.java:	private static final String TEXT_UP_CHOOSER = "GUI update:";
+gui/GUIControls.java:	private static final String TEXT_SCREEN_SHOT = "screen shot";
+gui/GUIControls.java:	private static final String TEXT_SIMTIME = "Simulation time - "+ 
+gui/GUIControls.java:	private static final String TEXT_SEPS = "simulated seconds per second";
+gui/GUIControls.java:	private static final int EPS_AVG_TIME = 2000;
+gui/GUIControls.java:	private static final String SCREENSHOT_FILE_TYPE = "png";
+gui/GUIControls.java:	private static final String SCREENSHOT_FILE = "screenshot";
+gui/GUIControls.java:	public static final String[] UP_SPEEDS = {"-10", "-1", "0.1", "1", "10",
+gui/GUIControls.java:	public static final double ZOOM_MIN = 0.001;
+gui/GUIControls.java:	public static final double ZOOM_MAX = 10;
+gui/GUIControls.java:	public static final int INITIAL_SPEED_SELECTION = 3;
+gui/GUIControls.java:	public static final int FFW_SPEED_INDEX = 7;
+gui/SimMenuBar.java:	public static final String ABOUT_TITLE = "about ONE";
+gui/SimMenuBar.java:	public static final String ABOUT_TEXT = "Copyright (C) 2007 TKK/Netlab\n\n"+
+gui/SimMenuBar.java:	private static final String UNDERLAY_NS = "GUI.UnderlayImage";
+gui/MainWindow.java:	private static final String WINDOW_TITLE = "ONE";
+gui/MainWindow.java:	private static final int WIN_XSIZE = 900;
+gui/MainWindow.java:	private static final int WIN_YSIZE = 700;
+gui/MainWindow.java:	private static final double SPLIT_PANE_LOG_WEIGHT = 0.2;
+HISTORY.txt:  to the final recipient
+report/KeyConvergenceReport.java:    private Map <Message, Double> messageConvergenceFinal;
+report/KeyConvergenceReport.java:        messageConvergenceFinal = new TreeMap<>();
+report/KeyConvergenceReport.java:            messageConvergenceFinal.put(messageKey.getKey(), temp/messageConvergence.size());
+report/KeyConvergenceReport.java:        for (Map.Entry <Message, Double> convergenceReport : messageConvergenceFinal.entrySet()) {
+report/KeyConvergenceReport.java:        write("\nAverage Key Convergence : " + temp/messageConvergenceFinal.size());
+report/package.html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+report/DTN2Reporter.java:	 * @param firstDelivery Was the target node final destination of the message
+report/BufferOccupancyReport.java:	public static final String BUFFER_REPORT_INTERVAL = "occupancyInterval";
+report/BufferOccupancyReport.java:	public static final int DEFAULT_BUFFER_REPORT_INTERVAL = 3600;
+report/AdjacencyGraphvizReport.java:	public static final String GRAPH_NAME = "adjgraph";
+report/ContactTimesReport.java:	public static final String GRANULARITY = "granularity";
+report/DistanceDelayReport.java:	public static final String SYNTAX = 
+report/MessageStatsReport.java:	public void messageTransferred(Message m, DTNHost from, DTNHost to, boolean finalTarget) {
+report/MessageStatsReport.java:		if (finalTarget) {
+report/MessageGraphvizReport.java:	public static final String GRAPH_NAME = "msggraph";
+report/EnergyLevelReport.java:	public static final String GRANULARITY = "granularity";
+report/EnergyLevelReport.java:	public static final String REPORTED_NODES = "nodes";
+report/EnergyLevelReport.java:	protected final int granularity;
+report/MessageLocationReport.java:	public static final String GRANULARITY = "granularity";
+report/MessageLocationReport.java:	public static final String REPORTED_MESSAGES = "messages";
+report/MessageLocationReport.java:	protected final int granularity;
+report/TotalContactTimeReport.java:	public static final String HEADER = "# time totalContactTime";
+report/MovementNs2Report.java:	public static final String NODE_ARR_S = "nodeArray";
+report/MovementNs2Report.java:	public static final String NS_CMD_S = "nsCmd";
+report/MovementNs2Report.java:	public static final String DEF_NODE_ARRAY = "$node_";
+report/MovementNs2Report.java:	public static final String DEF_NS_CMD = "$ns_";
+report/MovementNs2Report.java:	public static final double EPSILON = 0.00001; 
+report/MovementNs2Report.java:	public static final String COORD_FORMAT = "%.5f";
+report/EventLogReport.java: * final destination, delivered there again, or just normally relayed 
+report/EventLogReport.java:	public static final String MESSAGE_TRANS_RELAYED = "R";
+report/EventLogReport.java:	public static final String MESSAGE_TRANS_DELIVERED = "D";
+report/EventLogReport.java:	public static final String MESSAGE_TRANS_DELIVERED_AGAIN = "A";
+report/EventLogReport.java:	private void processEvent(final String action, final DTNHost host1, 
+report/EventLogReport.java:			final DTNHost host2, final Message message, final String extra) {
+report/Report.java:	public static final String REPORT_NS = "Report";
+report/Report.java:	public static final String INTERVAL_SETTING = "interval";
+report/Report.java:	public static final String OUTPUT_SETTING = "output";
+report/Report.java:	public static final String PRECISION_SETTING = "precision";
+report/Report.java:	public static final int DEF_PRECISION = 4;
+report/Report.java:	public static final String REPORTDIR_SETTING = "Report.reportDir";
+report/Report.java:	public static final String WARMUP_S = "warmup";
+report/Report.java:	public static final String OUT_SUFFIX = ".txt";
+report/Report.java:	public static final String INTERVALLED_FORMAT ="%04d" + OUT_SUFFIX; 
+report/Report.java:	public static final String NAN = "NaN";
+report/Report.java:			done(); // finalize the old file
+report/MessageDelayReport.java:	public static final String HEADER =
+report/BufferOverflowReport.java:			boolean finalTarget) {}
+report/MessageReport.java:	public static final String HEADER =
+movement/package.html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+movement/BusControlSystem.java:	public static final String BUS_CONTROL_SYSTEM_NR = "busControlSystemNr";
+movement/BusTravellerMovement.java:	public static final String PROBABILITIES_STRING = "probs";
+movement/BusTravellerMovement.java:	public static final String PROBABILITY_TAKE_OTHER_BUS = "probTakeOtherBus";
+movement/BusTravellerMovement.java:	public static final int STATE_WAITING_FOR_BUS = 0;
+movement/BusTravellerMovement.java:	public static final int STATE_DECIDED_TO_ENTER_A_BUS = 1;
+movement/BusTravellerMovement.java:	public static final int STATE_TRAVELLING_ON_BUS = 2;
+movement/BusTravellerMovement.java:	public static final int STATE_WALKING_ELSEWHERE = 3;
+movement/MapRouteMovement.java:	public static final String ROUTE_FILE_S = "routeFile";
+movement/MapRouteMovement.java:	public static final String ROUTE_TYPE_S = "routeType";
+movement/MapRouteMovement.java:	public static final String ROUTE_FIRST_STOP_S = "routeFirstStop";
+movement/RandomWaypoint.java:	private static final int PATH_LENGTH = 1;
+movement/ClusterMovement.java:	public static final String	CLUSTER_RANGE = "clusterRange";
+movement/ClusterMovement.java:	public static final String	CLUSTER_CENTER = "clusterCenter";
+movement/LinearFormation.java:	public static final String LINEAR_FORMATION_NS = "LinearFormation.";
+movement/LinearFormation.java:	public static final String START_LOCATION_S = "startLocation";
+movement/LinearFormation.java:	public static final String END_LOCATION_S = "endLocation";
+movement/map/package.html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+movement/map/DijkstraPathFinder.java:	private static final Double INFINITY = Double.MAX_VALUE;
+movement/map/DijkstraPathFinder.java:	private static final int PQ_INIT_SIZE = 11;
+movement/map/DijkstraPathFinder.java:			path.add(0, from); // finally put the source node to first node
+movement/map/MapRoute.java:	public static final int CIRCULAR = 1;
+movement/map/MapRoute.java:	public static final int PINGPONG = 2;
+movement/map/MapNode.java:	public static final int MIN_TYPE = 1;
+movement/map/MapNode.java:	public static final int MAX_TYPE = 31;
+movement/map/PointsOfInterest.java:	public static final String POI_NS = "PointsOfInterest";
+movement/map/PointsOfInterest.java:	public static final String POI_FILE_S = "poiFile";
+movement/map/PointsOfInterest.java:	public static final String POI_SELECT_S = "pois";
+movement/ExternalMovement.java:	public static final String EXTERNAL_MOVEMENT_NS = "ExternalMovement";
+movement/ExternalMovement.java:	public static final String MOVEMENT_FILE_S = "file";
+movement/ExternalMovement.java:	public static final String NROF_PRELOAD_S = "nrofPreload";
+movement/ExternalMovement.java:	private static final Coord DEF_INIT_LOC = new Coord(0,0);
+movement/ExternalMovement.java:	private static final double MIN_AHEAD_INTERVALS = 2;
+movement/OfficeActivityMovement.java:	private static final int WALKING_TO_OFFICE_MODE = 0;
+movement/OfficeActivityMovement.java:	private static final int AT_OFFICE_MODE = 1;
+movement/OfficeActivityMovement.java:	public static final String WORK_DAY_LENGTH_SETTING = "workDayLength";
+movement/OfficeActivityMovement.java:	public static final String NR_OF_OFFICES_SETTING = "nrOfOffices";
+movement/OfficeActivityMovement.java:	public static final String OFFICE_SIZE_SETTING = "officeSize";
+movement/OfficeActivityMovement.java:	public static final String OFFICE_WAIT_TIME_PARETO_COEFF_SETTING = 
+movement/OfficeActivityMovement.java:	public static final String OFFICE_MIN_WAIT_TIME_SETTING = 
+movement/OfficeActivityMovement.java:	public static final String OFFICE_MAX_WAIT_TIME_SETTING = 
+movement/OfficeActivityMovement.java:	public static final String OFFICE_LOCATIONS_FILE_SETTING = 
+movement/StationaryMovement.java:	public static final String LOCATION_S = "nodeLocation";
+movement/WorkingDayMovement.java: * go shopping or similar activities in the evening and finally go home to 
+movement/WorkingDayMovement.java:	public static final String PROBABILITY_TO_OWN_CAR_SETTING = "ownCarProb";
+movement/WorkingDayMovement.java:	public static final String PROBABILITY_TO_GO_SHOPPING_SETTING = 
+movement/WorkingDayMovement.java:	private static final int BUS_TO_WORK_MODE = 0;
+movement/WorkingDayMovement.java:	private static final int BUS_TO_HOME_MODE = 1;
+movement/WorkingDayMovement.java:	private static final int BUS_TO_EVENING_ACTIVITY_MODE = 2;
+movement/WorkingDayMovement.java:	private static final int WORK_MODE = 3;
+movement/WorkingDayMovement.java:	private static final int HOME_MODE = 4;
+movement/WorkingDayMovement.java:	private static final int EVENING_ACTIVITY_MODE = 5;
+movement/ActivenessHandler.java:	public static final String ACTIVE_TIMES_S = "activeTimes";
+movement/EveningActivityMovement.java:	private static final int WALKING_TO_MEETING_SPOT_MODE = 0;
+movement/EveningActivityMovement.java:	private static final int EVENING_ACTIVITY_MODE = 1;
+movement/EveningActivityMovement.java:	public static final String NR_OF_MEETING_SPOTS_SETTING = "nrOfMeetingSpots";
+movement/EveningActivityMovement.java:	public static final String EVENING_ACTIVITY_CONTROL_SYSTEM_NR_SETTING = 
+movement/EveningActivityMovement.java:	public static final String MEETING_SPOTS_FILE_SETTING = "meetingSpotsFile";
+movement/EveningActivityMovement.java:	public static final String MIN_GROUP_SIZE_SETTING = "minGroupSize";
+movement/EveningActivityMovement.java:	public static final String MAX_GROUP_SIZE_SETTING = "maxGroupSize";
+movement/EveningActivityMovement.java:	public static final String MIN_WAIT_TIME_SETTING = 
+movement/EveningActivityMovement.java:	public static final String MAX_WAIT_TIME_SETTING = 
+movement/MovementModel.java:	public static final String SPEED = "speed";
+movement/MovementModel.java:	public static final String WAIT_TIME = "waitTime";
+movement/MovementModel.java:	public static final double[] DEF_SPEEDS = {1,1};
+movement/MovementModel.java:	public static final double[] DEF_WAIT_TIMES = {0,0};
+movement/MovementModel.java:	public static final String MOVEMENT_MODEL_NS = "MovementModel";
+movement/MovementModel.java:	public static final String WORLD_SIZE = "worldSize";
+movement/MovementModel.java:	public static final String RNG_SEED = "rngSeed";
+movement/HomeActivityMovement.java:	private static final int WALKING_HOME_MODE = 0;
+movement/HomeActivityMovement.java:	private static final int AT_HOME_MODE = 1;
+movement/HomeActivityMovement.java:	private static final int READY_MODE = 2;
+movement/HomeActivityMovement.java:	private static final int DAY_LENGTH = 86000;
+movement/HomeActivityMovement.java:	public static final String HOME_LOCATIONS_FILE_SETTING = "homeLocationsFile";
+movement/HomeActivityMovement.java:	public static final String STD_FOR_TIME_DIFF_SETTING = "timeDiffSTD";
+movement/MapBasedMovement.java:	public static final String MAP_BASE_MOVEMENT_NS = "MapBasedMovement";
+movement/MapBasedMovement.java:	public static final String NROF_FILES_S = "nrofMapFiles";
+movement/MapBasedMovement.java:	public static final String FILE_S = "mapFile";
+movement/MapBasedMovement.java:	public static final String MAP_SELECT_S = "okMaps";
+interfaces/ConnectivityGrid.java:		private static final int EXPECTED_INTERFACE_COUNT = 5;
+input/package.html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+input/EventQueueHandler.java:	public static final String SETTINGS_NAMESPACE = "Events";
+input/EventQueueHandler.java:	public static final String NROF_SETTING = "nrof";
+input/EventQueueHandler.java:	public static final String CLASS_SETTING = "class";
+input/EventQueueHandler.java:	public static final String CLASS_PACKAGE = "input";
+input/EventQueueHandler.java:	public static final String PRELOAD_SETTING = "nrofPreload";
+input/EventQueueHandler.java:	public static final String PATH_SETTING = "filePath";
+input/MessageEventGenerator.java:	public static final String MESSAGE_SIZE_S = "size";
+input/MessageEventGenerator.java:	public static final String MESSAGE_INTERVAL_S = "interval";
+input/MessageEventGenerator.java:	public static final String HOST_RANGE_S = "hosts";
+input/MessageEventGenerator.java:	public static final String TO_HOST_RANGE_S = "tohosts";
+input/MessageEventGenerator.java:	public static final String MESSAGE_ID_PREFIX_S = "prefix";
+input/MessageEventGenerator.java:	public static final String MESSAGE_TIME_S = "time";
+input/BinaryEventsReader.java:	public static final String BINARY_EXT = ".binee";
+input/ExternalEventsQueue.java:	public static final String SETTINGS_NAMESPACE = "ExternalEvents";
+input/ExternalEventsQueue.java:	public static final String PRELOAD_SETTING = "nrofPreload";
+input/ExternalEventsQueue.java:	public static final String PATH_SETTING = "filePath";
+input/ExternalEventsQueue.java:	public static final int DEFAULT_NROF_PRELOAD = 500;
+input/StandardEventsReader.java:	public static final String CREATE = "C";
+input/StandardEventsReader.java:	public static final String SEND = "S";
+input/StandardEventsReader.java:	public static final String DELIVERED = "DE";
+input/StandardEventsReader.java:	public static final String ABORT = "A";
+input/StandardEventsReader.java:	public static final String DROP = "DR";
+input/StandardEventsReader.java:	public static final String REMOVE = "R";
+input/StandardEventsReader.java:	public static final String CONNECTION = "CONN";
+input/StandardEventsReader.java:	public static final String CONNECTION_DOWN = "down";
+input/StandardEventsReader.java:	public static final String CONNECTION_UP = "up";
+input/StandardEventsReader.java:	public static final String ALL_MESSAGES_ID = "*";
+input/ExternalMovementReader.java:	public static final String COMMENT_PREFIX = "#";
+input/WKTReader.java:	public static final String LINESTRING = "LINESTRING";
+input/WKTReader.java:	public static final String MULTILINESTRING = "MULTILINESTRING";
+input/WKTReader.java:	public static final String POINT = "POINT";
+input/MessageRelayEvent.java:	public static final int SENDING = 1;
+input/MessageRelayEvent.java:	public static final int TRANSFERRED = 2;
+input/MessageRelayEvent.java:	public static final int ABORTED = 3;
+input/MessageRelayEvent.java:	public static final String[] STAGE_STRINGS = {"SENDING",
+routing/package.html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+routing/schedule/ScheduleOracle.java:	private static final long serialVersionUID = 42L;
+routing/schedule/ScheduleDijkstra.java:	private static final Double INFINITY = Double.MAX_VALUE;
+routing/schedule/ScheduleDijkstra.java:	private static final int PQ_INIT_SIZE = 11;
+routing/schedule/ScheduleEntry.java:	private static final long serialVersionUID = 42L;
+routing/MaxPropRouterWithEstimation.java:	/** IDs of the messages that are known to have reached the final dst */
+routing/MaxPropRouterWithEstimation.java:	public static final String MAXPROP_NS = "MaxPropRouterWithEstimation";
+routing/MaxPropRouterWithEstimation.java:	public static final String TIME_SCALE_S ="timeScale";
+routing/MaxPropRouterWithEstimation.java:	public static final double DEFAULT_ALPHA = 1.0;
+routing/MaxPropRouterWithEstimation.java:		/* was this node the final recipient of the message? */
+routing/MaxPropRouterWithEstimation.java:	 * Method is called just before a transfer is finalized 
+routing/MaxPropRouterWithEstimation.java:	 * @param con The connection whose transfer was finalized
+routing/MaxPropRouterWithEstimation.java:		/* was the message delivered to the final recipient? */
+routing/MaxPropRouterWithEstimation.java:		// try messages that could be delivered to final recipient
+routing/EnergyAwareRouter.java:	public static final String INIT_ENERGY_S = "intialEnergy";
+routing/EnergyAwareRouter.java:	public static final String SCAN_ENERGY_S = "scanEnergy";
+routing/EnergyAwareRouter.java:	public static final String TRANSMIT_ENERGY_S = "transmitEnergy";
+routing/EnergyAwareRouter.java:	public static final String WARMUP_S = "energyWarmup";
+routing/EnergyAwareRouter.java:	public static final String ENERGY_VALUE_ID = "Energy.value";
+routing/EnergyAwareRouter.java:	private final double[] initEnergy;
+routing/EnergyAwareRouter.java:		// Try first the messages that can be delivered to final recipient
+routing/KeyExchange.java:    public boolean isFinalDest(Message m, DTNHost aHost) { return true;  }
+routing/RoutingDecisionEngine.java:	public boolean isFinalDest(Message m, DTNHost aHost);
+routing/EpidemicKeyExchange.java:    @Override public boolean isFinalDest(Message m, DTNHost aHost) { return true; }
+routing/EpidemicOracleRouter.java:					con.finalizeTransfer(); /* and finalize it right away */
+routing/EpidemicOracleRouter.java:				c.finalizeTransfer(); /* and finalize it right away */
+routing/EpidemicOracleRouter.java:			/* TTL has expired and this host is not the final recipient */
+routing/EpidemicOracleRouter.java:		/* was the message delivered to the final recipient? */
+routing/EpidemicOracleRouter.java:		   are finalized immediately */
+routing/DecisionEngineRouter.java: *   RoutingDecisionEngine.isFinalDest() to determine if the receiving (this)
+routing/DecisionEngineRouter.java:    public static final String PUBSUB_NS = "DecisionEngineRouter";
+routing/DecisionEngineRouter.java:    public static final String ENGINE_SETTING = "decisionEngine";
+routing/DecisionEngineRouter.java:    public static final String TOMBSTONE_SETTING = "tombstones";
+routing/DecisionEngineRouter.java:    public static final String CONNECTION_STATE_SETTING = "";
+routing/DecisionEngineRouter.java:			/* final recipient has already received the msg -> delete it */
+routing/DecisionEngineRouter.java:        // boolean isFinalRecipient = decider.isFinalDest(aMessage, getHost());
+routing/DecisionEngineRouter.java:        boolean isFinalRecipient = true;
+routing/DecisionEngineRouter.java:        boolean isFirstDelivery =  isFinalRecipient &&  !isDeliveredMessage(aMessage);
+routing/DecisionEngineRouter.java:            // not the final recipient and app doesn't want to drop the message
+routing/ActiveRouter.java:	 * If set to true and final recipient of a message rejects it because it
+routing/ActiveRouter.java:	public static final String DELETE_DELIVERED_S = "deleteDelivered";
+routing/ActiveRouter.java:	/** should messages that final recipient marks as delivered be deleted
+routing/ActiveRouter.java:	public static final String RESPONSE_PREFIX = "R_";
+routing/ActiveRouter.java:			/* final recipient has already received the msg -> delete it */
+routing/ActiveRouter.java:	 * this router (as final recipient), or DENIED_NO_SPACE if the message
+routing/ActiveRouter.java:			/* TTL has expired and this host is not the final recipient */
+routing/ActiveRouter.java:	 * Exchanges deliverable (to final recipient) messages between this host
+routing/ActiveRouter.java:	 * some transfer has not been finalized.
+routing/ActiveRouter.java:				continue; // transmission is finalized
+routing/ActiveRouter.java:	 * Checks out all sending connections to finalize the ready ones 
+routing/ActiveRouter.java:			/* finalize ready transfers */
+routing/ActiveRouter.java:					con.finalizeTransfer();
+routing/ActiveRouter.java:	 * Method is called just before a transfer is finalized 
+routing/ActiveRouter.java:	 * @param con The connection whose transfer was finalized
+routing/ProphetRouter.java:	public static final double P_INIT = 0.75;
+routing/ProphetRouter.java:	public static final double DEFAULT_BETA = 0.25;
+routing/ProphetRouter.java:	public static final double GAMMA = 0.98;
+routing/ProphetRouter.java:	public static final String PROPHET_NS = "ProphetRouter";
+routing/ProphetRouter.java:	public static final String SECONDS_IN_UNIT_S ="secondsInTimeUnit";
+routing/ProphetRouter.java:	public static final String BETA_S = "beta";
+routing/ProphetRouter.java:		// try messages that could be delivered to final recipient
+routing/MessageRouter.java:	public static final String B_SIZE_S = "bufferSize";
+routing/MessageRouter.java:	public static final String MSG_TTL_S = "msgTtl";
+routing/MessageRouter.java:	public static final String SEND_QUEUE_MODE_S = "sendQueue";
+routing/MessageRouter.java:	public static final int Q_MODE_RANDOM = 1;
+routing/MessageRouter.java:	public static final int Q_MODE_FIFO = 2;
+routing/MessageRouter.java:	public static final int RCV_OK = 0;
+routing/MessageRouter.java:	public static final int TRY_LATER_BUSY = 1;
+routing/MessageRouter.java:	public static final int DENIED_OLD = -1;
+routing/MessageRouter.java:	public static final int DENIED_NO_SPACE = -2;
+routing/MessageRouter.java:	public static final int DENIED_TTL = -3;
+routing/MessageRouter.java:	public static final int DENIED_UNSPECIFIED = -999;
+routing/MessageRouter.java:	public static final int DENIED_DELIVERED = -4;
+routing/MessageRouter.java:	/** The messages this router has received as the final recipient */
+routing/MessageRouter.java:	 * received by this host as the <strong>final</strong> recipient 
+routing/MessageRouter.java:	 * this host as the final recipient.
+routing/MessageRouter.java:	 * message buffer unless this host is the final recipient of the message.
+routing/MessageRouter.java:		boolean isFinalRecipient;
+routing/MessageRouter.java:		isFinalRecipient = aMessage.getTo() == this.host;
+routing/MessageRouter.java:		isFirstDelivery = isFinalRecipient &&
+routing/MessageRouter.java:		if (!isFinalRecipient && outgoing!=null) {
+routing/MessageRouter.java:			// not the final recipient and app doesn't want to drop the message
+routing/MessageRouter.java:	 * because it was delivered to final destination.  
+routing/EpidemicRouterRevised.java:    @Override public boolean isFinalDest(Message m, DTNHost aHost) {
+routing/SprayAndWaitRouter.java:	public static final String NROF_COPIES = "nrofCopies";
+routing/SprayAndWaitRouter.java:	public static final String BINARY_MODE = "binaryMode";
+routing/SprayAndWaitRouter.java:	public static final String SPRAYANDWAIT_NS = "SprayAndWaitRouter";
+routing/SprayAndWaitRouter.java:	public static final String MSG_COUNT_PROPERTY = SPRAYANDWAIT_NS + "." +
+routing/SprayAndWaitRouter.java:		/* try messages that could be delivered to final recipient */
+routing/SprayAndWaitRouter.java:	 * Called just before a transfer is finalized (by 
+routing/DirectDeliveryRouter.java: * Router that will deliver messages only to the final recipient.
+routing/DirectDeliveryRouter.java:		// Try only the messages that can be delivered to final recipient
+routing/MaxPropRouter.java:	public static final String MAXPROP_NS = "MaxPropRouter";
+routing/MaxPropRouter.java:	public static final String PROB_SET_MAX_SIZE_S = "probSetMaxSize";
+routing/MaxPropRouter.java:    public static final int DEFAULT_PROB_SET_MAX_SIZE = 50;
+routing/MaxPropRouter.java:	/** IDs of the messages that are known to have reached the final dst */
+routing/MaxPropRouter.java:	public static final String ALPHA_S = "alpha";
+routing/MaxPropRouter.java:	public static final double DEFAULT_ALPHA = 1.0;
+routing/MaxPropRouter.java:		/* was this node the final recipient of the message? */
+routing/MaxPropRouter.java:	 * Method is called just before a transfer is finalized 
+routing/MaxPropRouter.java:	 * @param con The connection whose transfer was finalized
+routing/MaxPropRouter.java:		/* was the message delivered to the final recipient? */
+routing/MaxPropRouter.java:		// try messages that could be delivered to final recipient
+routing/EpidemicRouter.java:		// Try first the messages that can be delivered to final recipient
+routing/ProphetRouterWithEstimation.java:	public static final double P_INIT = 0.75;
+routing/ProphetRouterWithEstimation.java:	public static final double DEFAULT_BETA = 0.25;
+routing/ProphetRouterWithEstimation.java:	public static final double GAMMA = 0.98;
+routing/ProphetRouterWithEstimation.java:	public static final double DEFAULT_PTARGET = .2;
+routing/ProphetRouterWithEstimation.java:	public static final String PROPHET_NS = "ProphetRouterWithEstimation";
+routing/ProphetRouterWithEstimation.java:	public static final String TIME_SCALE_S ="timeScale";
+routing/ProphetRouterWithEstimation.java:	public static final String P_AVG_TARGET_S = "targetPavg";
+routing/ProphetRouterWithEstimation.java:	public static final String BETA_S = "beta";
+routing/ProphetRouterWithEstimation.java:		// try messages that could be delivered to final recipient
+routing/community/CWindowCentrality.java:	public static final String CENTRALITY_WINDOW_SETTING = "timeWindow";
+routing/community/CWindowCentrality.java:	public static final String COMPUTATION_INTERVAL_SETTING = "computeInterval";
+routing/community/CWindowCentrality.java:	public static final String EPOCH_COUNT_SETTING = "nrOfEpochsToAvg";
+routing/community/AvgDegreeCentrality.java:	public static final String CENTRALITY_WINDOW_SETTING = "timeWindow";
+routing/community/AvgDegreeCentrality.java:	public static final String COMPUTATION_INTERVAL_SETTING = "computeInterval";
+routing/community/SWindowCentrality.java:	public static final String CENTRALITY_WINDOW_SETTING = "timeWindow";
+routing/community/SWindowCentrality.java:	public static final String COMPUTATION_INTERVAL_SETTING = "computeInterval";
+routing/community/DistributedBubbleRap.java:	public static final String COMMUNITY_ALG_SETTING = "communityDetectAlg";
+routing/community/DistributedBubbleRap.java:	public static final String CENTRALITY_ALG_SETTING = "centralityAlg";
+routing/community/DistributedBubbleRap.java:	public boolean isFinalDest(Message m, DTNHost aHost)
+routing/community/DistributedBubbleRap.java:		if(m.getTo() == otherHost) return true; // trivial to deliver to final dest
+routing/community/KCliqueCommunityDetection.java:	public static final String K_SETTING = "K";
+routing/community/KCliqueCommunityDetection.java:	public static final String FAMILIAR_SETTING = "familiarThreshold";
+routing/community/LABELDecisionEngine.java:	public static final String COMMUNITY_ALG_SETTING = "communityDetectAlg";
+routing/community/LABELDecisionEngine.java:	public boolean isFinalDest(Message m, DTNHost aHost)
+routing/community/SimpleCommunityDetection.java:	public static final String LAMBDA_SETTING = "lambda";
+routing/community/SimpleCommunityDetection.java:	public static final String GAMMA_SETTING = "gamma";
+routing/community/SimpleCommunityDetection.java:	public static final String FAMILIAR_SETTING = "familiarThreshold";
+routing/maxprop/package.html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+routing/maxprop/MaxPropDijkstra.java:	private static final Double INFINITY = Double.MAX_VALUE;
+routing/maxprop/MaxPropDijkstra.java:	private static final int PQ_INIT_SIZE = 11;
+routing/maxprop/MeetingProbabilitySet.java:	public static final int INFINITE_SET_SIZE = Integer.MAX_VALUE;
+test/package.html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+test/WKTPointReaderTest.java:	private final String POINT_DATA = 
+test/WKTPointReaderTest.java:	private final Coord[] POINTS = {
+test/DijkstraPathFinderTest.java:	private final MapNode n1 = newNode(0,0);
+test/DijkstraPathFinderTest.java:	private final MapNode n2 = newNode(10,0);
+test/DijkstraPathFinderTest.java:	private final MapNode n3 = newNode(20,0);
+test/DijkstraPathFinderTest.java:	private final MapNode n4 = newNode(0,10);
+test/DijkstraPathFinderTest.java:	private final MapNode n5 = newNode(10,10);
+test/DijkstraPathFinderTest.java:	private final MapNode n6 = newNode(15,10);
+test/DijkstraPathFinderTest.java:	private final MapNode n7 = newNode(20,10);
+test/DijkstraPathFinderTest.java:	private final MapNode n8 = newNode(25,10);
+test/DistanceDelayReportTest.java:		final String NS = "DistanceDelayReport.";
+test/MaxPropDijkstraTest.java:	private final int NROF_HOSTS = 5;
+test/MaxPropDijkstraTest.java:	private final double DELTA = 0.0000001;
+test/SettingsTest.java:	private static final String IRS_S = "invalidRunSetting";
+test/SettingsTest.java:	private static final String CSV_RS_S = "csvRunSetting";
+test/SettingsTest.java:	private static final int[] CSV_RS_V = {1,2,3,4};
+test/SettingsTest.java:	private static final String TST = "tstSetting";
+test/SettingsTest.java:	private static final String TST_RES = "tst";
+test/SettingsTest.java:	private static final String[] INPUT = {
+test/WKTReaderTest.java:	private final int NROF_TST_NODES = 9;
+test/MessageChecker.java:	public final String TYPE_NONE = "none";
+test/MessageChecker.java:	public final String TYPE_DELETE = "delete";
+test/MessageChecker.java:	public final String TYPE_ABORT = "abort";
+test/MessageChecker.java:	public final String TYPE_RELAY = "relay";
+test/MessageChecker.java:	public final String TYPE_CREATE = "create";
+test/MessageChecker.java:	public final String TYPE_START = "start";
+test/ExternalMovementTest.java:	private static final String[] INPUT = {
+test/ExternalMovementTest.java:	private static final String[] STATIONARY_INPUT = { 
+test/ExternalMovementTest.java:	private static final Coord[][] INPUT_COORDS = {
+test/ExternalMovementTest.java:	private static final Coord[] STATIONARY_INPUT_COORDS = {
+test/ExternalMovementTest.java:	private static final double CLOCK_STEP = 10;
+test/MapBasedMovementTest.java:	private final String WKT = "LINESTRING (1.0 1.0, 2.0 1.0, 3.0 1.0, 4.0 1.0) \n" +
+test/MapBasedMovementTest.java:		final int NROF = 15;
+test/EpidemicRouterTest.java:	 * Test unexpected ordering of finalizations and message transfers.
+test/EpidemicRouterTest.java:		// h1 has transferred msg but not finalized transfer when h2 starts
+test/EpidemicRouterTest.java:		assertFalse(mc.next()); // shouldn't start transfer (prev not finalized)
+test/EpidemicRouterTest.java:		h1.update(true); // finalize the transfer of MSG2
+test/EpidemicRouterTest.java:		// last transfer is finalized -> update should start transfer of msgId2
+test/EpidemicRouterTest.java:		final int TIME_STEP = 10;
+test/EpidemicRouterTest.java:	 * @param withDestination If true, the other node is the final destination
+test/EpidemicRouterTest.java:	 *        of the messages, if false, the other node is not the final dst
+test/ExternalEventsQueueTest.java:	private final String[] stdinput = {
+test/ExternalEventsQueueTest.java:	private final double msgTimes[] = {1000.000, 1533.405, 1542.000, 
+test/ModuleCommunicationBusTest.java:	private static final String TST_VAL = "test-value";
+test/TotalContactTimeReportTest.java:	private final String SET_PREFIX = "TotalContactTimeReport.";
+test/ProphetRouterTest.java:		// first h1 should transfer msgId2 to h3 (final recipient)
+test/PointsOfInterestTest.java:	private static final String MAP_DATA = 
+test/PointsOfInterestTest.java:	private static final String MAP_DATA2 =
+test/PointsOfInterestTest.java:	private static final String[] POINTS_IN_MAP = { 
+test/PointsOfInterestTest.java:	private static final Coord[][] COORDS_IN_MAP = { 
+test/PointsOfInterestTest.java:		final int TOTAL = 5000;
+test/PointsOfInterestTest.java:		final double DELTA = 0.02; 
+test/ExternalMovementReaderTest.java:	private static final String INPUT = 
+test/ExternalMovementReaderTest.java:	private static final String [] ids = {"1","2","3"};
+test/ExternalMovementReaderTest.java:	private static final double [] times = {10,20,30};
+test/ExternalMovementReaderTest.java:	private static final Coord [][] coords = 
+test/WorldTest.java:	private static final double TIME_DELTA = 0.00001;
+test/AdjacencyGraphvizReportTest.java:	private static final int NROF = 3;
+test/MaxPropRouterTest.java:	private static final int NROF_HOSTS = 10;
+test/MaxPropRouterTest.java:	private static final double INVALID_COST = Double.MAX_VALUE;
+test/AbstractRouterTest.java:	protected static final int BUFFER_SIZE = 100;
+test/AbstractRouterTest.java:	protected static final int TRANSMIT_SPEED = 10;
+test/AbstractRouterTest.java:	protected static final Coord disconnectLocation = new Coord(900000,900000);
+test/AbstractRouterTest.java:	protected static final String msgId1 = "MSG_ID1";
+test/AbstractRouterTest.java:	protected static final String msgId2 = "MSG_ID2";
+test/AbstractRouterTest.java:	protected static final String msgId3 = "MSG_ID3";
+test/AbstractRouterTest.java:	protected static final String msgId4 = "MSG_ID4";
+test/AbstractRouterTest.java:	protected static final String msgId5 = "MSG_ID5";
+test/ContactTimesReportTest.java:	private final static String SET_PREFIX = "ContactTimesReport.";
+test/ContactTimesReportTest.java:	private final static String I_SET_PREFIX = "InterContactTimesReport.";
+test/ConnectionTest.java:	public static final double START_TIME = 10.0;
+test/ConnectionTest.java:	public void testFinalizeTransfer() {
+test/ConnectionTest.java:		c[0].finalizeTransfer(); /* this doesn't check time */
+test/ConnectionTest.java:		c[0].finalizeTransfer();
+test/ConnectionTest.java:		c[0].finalizeTransfer(); /* should not affect */

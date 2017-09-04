@@ -18,14 +18,27 @@ public class KeyRelayedReport extends Report implements MessageListener {
 
     @Override
     public void messageTransferred(Message m, DTNHost from, DTNHost to, boolean firstDelivery) {
-        for (Message message : to.getMessageCollection()) {
+
+        /* for (Message message : to.getMessageCollection()) {
             double creationTime = message.getCreationTime();
             if (from.getTombstoneList().containsKey(message.getFrom().toString())) {
                 if (from.getTombstoneList().get(message.getFrom().toString()) > creationTime) {
                     this.nrofMessageRelayed++; // increment if the key is newer
                 }
             }
+        } */
+
+        for (Message message : to.getMessageCollection()) {
+            double creationTime = message.getCreationTime();
+            String sender = message.getFrom().toString();
+            String receiver = message.getTo().toString();
+            if (from.getTombstoneList().containsKey(sender +  " - " + receiver)) {
+                if (from.getTombstoneList().get(sender +  " - " + receiver) > creationTime) {
+                    this.nrofMessageRelayed++;
+                }
+            }
         }
+
     }
 
     @Override

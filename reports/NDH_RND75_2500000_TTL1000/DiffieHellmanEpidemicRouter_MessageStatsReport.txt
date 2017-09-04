@@ -1,0 +1,20 @@
+Message stats for scenario DiffieHellmanEpidemicRouter
+sim_time: 2500000.0012
+created: 500
+started: 49406
+relayed: 49406
+aborted: 0
+dropped: 48700
+removed: 0
+delivered: 49401
+delivery_prob: 98.8020
+response_prob: 0.0000
+overhead_ratio: 0.0001
+latency_avg: 537.7659
+latency_med: 519.9999
+hopcount_avg: 4.2892
+hopcount_med: 4
+buffertime_avg: 59439.7696
+buffertime_med: 59454.9001
+rtt_avg: NaN
+rtt_med: NaN

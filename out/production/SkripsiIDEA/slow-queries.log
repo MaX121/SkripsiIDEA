@@ -1,0 +1,551 @@
+# Time: 170831 10:10:23
+# User@Host: sts_system[sts_system] @ localhost []  Id: 20942
+# Query_time: 5.137698  Lock_time: 0.000137 Rows_sent: 1  Rows_examined: 1812341
+SET timestamp=1504149023;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2421748747078';
+# Time: 170831 10:10:59
+# User@Host: sts_system[sts_system] @ localhost []  Id: 20946
+# Query_time: 12.368667  Lock_time: 0.000235 Rows_sent: 1  Rows_examined: 1601968
+SET timestamp=1504149059;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2421748747078'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:11:11
+# User@Host: sts_system[sts_system] @ localhost []  Id: 20948
+# Query_time: 12.026312  Lock_time: 0.000228 Rows_sent: 1  Rows_examined: 1601968
+SET timestamp=1504149071;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2421748747078'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:11:16
+# User@Host: sts_system[sts_system] @ localhost []  Id: 20948
+# Query_time: 5.282906  Lock_time: 0.000137 Rows_sent: 1  Rows_examined: 1812341
+SET timestamp=1504149076;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2421748747078';
+# Time: 170831 10:17:35
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21060
+# Query_time: 12.230661  Lock_time: 0.000287 Rows_sent: 1  Rows_examined: 1601970
+SET timestamp=1504149455;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2427026276179'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:17:41
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21060
+# Query_time: 5.422385  Lock_time: 0.000147 Rows_sent: 1  Rows_examined: 1812348
+SET timestamp=1504149461;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2427026276179';
+# Time: 170831 10:18:00
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21069
+# Query_time: 12.081173  Lock_time: 0.000218 Rows_sent: 1  Rows_examined: 1601970
+SET timestamp=1504149480;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2427026276179'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:18:13
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21071
+# Query_time: 12.268325  Lock_time: 0.000242 Rows_sent: 1  Rows_examined: 1601970
+SET timestamp=1504149493;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2427026276179'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:18:18
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21071
+# Query_time: 5.265057  Lock_time: 0.000161 Rows_sent: 1  Rows_examined: 1812348
+SET timestamp=1504149498;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2427026276179';
+# Time: 170831 10:27:24
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21231
+# Query_time: 11.974020  Lock_time: 0.000398 Rows_sent: 1  Rows_examined: 1601975
+SET timestamp=1504150044;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2422939336791'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:27:29
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21231
+# Query_time: 5.215806  Lock_time: 0.000136 Rows_sent: 1  Rows_examined: 1812357
+SET timestamp=1504150049;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2422939336791';
+# Time: 170831 10:27:50
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21236
+# Query_time: 12.117216  Lock_time: 0.000243 Rows_sent: 1  Rows_examined: 1601975
+SET timestamp=1504150070;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2422939336791'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:28:02
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21239
+# Query_time: 12.004395  Lock_time: 0.000238 Rows_sent: 1  Rows_examined: 1601975
+SET timestamp=1504150082;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2422939336791'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:28:07
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21239
+# Query_time: 5.340005  Lock_time: 0.000143 Rows_sent: 1  Rows_examined: 1812357
+SET timestamp=1504150087;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2422939336791';
+# Time: 170831 10:30:58
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21352
+# Query_time: 12.063633  Lock_time: 0.000291 Rows_sent: 1  Rows_examined: 1601976
+SET timestamp=1504150258;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2424655007692'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:31:04
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21352
+# Query_time: 5.265689  Lock_time: 0.000155 Rows_sent: 1  Rows_examined: 1812364
+SET timestamp=1504150264;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2424655007692';
+# Time: 170831 10:33:36
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21436
+# Query_time: 12.197825  Lock_time: 0.000241 Rows_sent: 1  Rows_examined: 1601978
+SET timestamp=1504150416;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2428372513093'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:33:42
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21436
+# Query_time: 5.383251  Lock_time: 0.000150 Rows_sent: 1  Rows_examined: 1812371
+SET timestamp=1504150422;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2428372513093';
+# Time: 170831 10:33:57
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21439
+# Query_time: 11.889475  Lock_time: 0.000220 Rows_sent: 1  Rows_examined: 1601978
+SET timestamp=1504150437;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2428372513093'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:34:09
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21442
+# Query_time: 11.861454  Lock_time: 0.000239 Rows_sent: 1  Rows_examined: 1601978
+SET timestamp=1504150449;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2428372513093'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:34:15
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21442
+# Query_time: 5.212845  Lock_time: 0.000149 Rows_sent: 1  Rows_examined: 1812371
+SET timestamp=1504150455;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2428372513093';
+# Time: 170831 10:37:44
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21544
+# Query_time: 12.266493  Lock_time: 0.000295 Rows_sent: 1  Rows_examined: 1602022
+SET timestamp=1504150664;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2422525564379'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:37:50
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21544
+# Query_time: 5.363964  Lock_time: 0.000152 Rows_sent: 1  Rows_examined: 1812406
+SET timestamp=1504150670;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2422525564379';
+# Time: 170831 10:38:06
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21552
+# Query_time: 11.941444  Lock_time: 0.000232 Rows_sent: 1  Rows_examined: 1602022
+SET timestamp=1504150686;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2422525564379'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:38:19
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21554
+# Query_time: 12.088084  Lock_time: 0.000397 Rows_sent: 1  Rows_examined: 1602022
+SET timestamp=1504150699;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2422525564379'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 10:38:24
+# User@Host: sts_system[sts_system] @ localhost []  Id: 21554
+# Query_time: 5.326194  Lock_time: 0.000164 Rows_sent: 1  Rows_examined: 1812406
+SET timestamp=1504150704;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2422525564379';
+# Time: 170831 13:24:05
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22123
+# Query_time: 12.880853  Lock_time: 0.000369 Rows_sent: 1  Rows_examined: 1602013
+SET timestamp=1504160645;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2226773993814'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 13:24:10
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22123
+# Query_time: 5.065049  Lock_time: 0.000142 Rows_sent: 1  Rows_examined: 1812415
+SET timestamp=1504160650;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2226773993814';
+# Time: 170831 13:24:29
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22127
+# Query_time: 12.111796  Lock_time: 0.000236 Rows_sent: 1  Rows_examined: 1602013
+SET timestamp=1504160669;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2226773993814'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 13:24:41
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22129
+# Query_time: 12.303990  Lock_time: 0.000377 Rows_sent: 1  Rows_examined: 1602013
+SET timestamp=1504160681;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2226773993814'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 13:24:47
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22129
+# Query_time: 5.465600  Lock_time: 0.000150 Rows_sent: 1  Rows_examined: 1812415
+SET timestamp=1504160687;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2226773993814';
+# Time: 170831 13:58:54
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22480
+# Query_time: 12.200063  Lock_time: 0.000252 Rows_sent: 1  Rows_examined: 1602047
+SET timestamp=1504162734;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2425335818545'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 13:58:59
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22480
+# Query_time: 5.341215  Lock_time: 0.000153 Rows_sent: 1  Rows_examined: 1812444
+SET timestamp=1504162739;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2425335818545';
+# Time: 170831 13:59:23
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22486
+# Query_time: 12.278598  Lock_time: 0.000219 Rows_sent: 1  Rows_examined: 1602047
+SET timestamp=1504162763;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2425335818545'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 13:59:35
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22488
+# Query_time: 12.441629  Lock_time: 0.000423 Rows_sent: 1  Rows_examined: 1602047
+SET timestamp=1504162775;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2425335818545'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 13:59:41
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22488
+# Query_time: 5.128006  Lock_time: 0.000142 Rows_sent: 1  Rows_examined: 1812444
+SET timestamp=1504162781;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2425335818545';
+# Time: 170831 14:01:51
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22645
+# Query_time: 12.224077  Lock_time: 0.000288 Rows_sent: 1  Rows_examined: 1602038
+SET timestamp=1504162911;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2426742742131'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 14:01:57
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22645
+# Query_time: 5.316949  Lock_time: 0.000143 Rows_sent: 1  Rows_examined: 1812451
+SET timestamp=1504162917;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2426742742131';
+# Time: 170831 14:02:14
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22667
+# Query_time: 12.472512  Lock_time: 0.000345 Rows_sent: 1  Rows_examined: 1602038
+SET timestamp=1504162934;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2426742742131'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 14:02:26
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22669
+# Query_time: 12.430173  Lock_time: 0.000259 Rows_sent: 1  Rows_examined: 1602040
+SET timestamp=1504162946;
+SELECT `orders`.*, `customers`.`customer_name`, `cities_origin`.`city_name` as `city_name_origin`, `cities_destination`.`city_name` as `city_name_destination`, `branches_origin`.`branch_name` as `branch_name_origin`, `branches_destination`.`branch_name` as `branch_name_destination`, `userprofile`.`userprofile_fullname`, `orders`.`order_sell_total` as `order_sell_total`, (SELECT packages.package_status FROM packages, det_order WHERE packages.package_id = det_order.package_id LIMIT 1) As package_status
+FROM `orders`
+LEFT JOIN `customers` ON `orders`.`customer_id` = `customers`.`customer_id`
+LEFT JOIN `branches` AS `branches_origin` ON `orders`.`order_origin` = `branches_origin`.`branch_id`
+LEFT JOIN `branches` AS `branches_destination` ON `orders`.`order_destination` = `branches_destination`.`branch_id`
+LEFT JOIN `cities` AS `cities_origin` ON `branches_origin`.`branch_city` = `cities_origin`.`city_id`
+LEFT JOIN `cities` AS `cities_destination` ON `branches_destination`.`branch_city` = `cities_destination`.`city_id`
+LEFT JOIN `user` ON `orders`.`staff_id` = `user`.`user_id`
+LEFT JOIN `userprofile` ON `user`.`user_id` = `userprofile`.`user_id`
+JOIN (SELECT packages.package_status AS package_status, det_order.order_id AS order_id FROM det_order, packages WHERE det_order.package_id = packages.package_id) AS packages ON `packages`.`order_id` = `orders`.`order_id`
+WHERE `orders`.`order_id` = '2426742742131'
+AND `orders`.`deleted_at` =0
+GROUP BY `orders`.`order_id`
+ORDER BY `order_date` DESC;
+# Time: 170831 14:02:32
+# User@Host: sts_system[sts_system] @ localhost []  Id: 22669
+# Query_time: 5.337461  Lock_time: 0.000165 Rows_sent: 1  Rows_examined: 1812458
+SET timestamp=1504162952;
+SELECT *
+FROM (SELECT order_id, COUNT(package_id) AS total_package, SUM(det_order_qty) AS total_koli, SUM(total_package_weight) AS total_weight, SUM(total_package_size) AS total_size, package_status AS package_status FROM (SELECT det_order.order_id, `det_order`.`package_id`, `det_order`.`det_order_total`, `det_order`.`det_order_notes`, `det_order`.`det_order_qty`, `det_order`.`det_order_sell_total`, `det_order`.`det_order_package_parent`, `packages`.`package_weight`, (packages.package_weight * det_order.det_order_qty)  AS total_package_weight, `packages`.`package_size`, (packages.package_size * det_order.det_order_qty) AS total_package_size, packages.package_status FROM det_order LEFT JOIN packages ON det_order.package_id = packages.package_id WHERE packages.deleted_at = "0" GROUP BY det_order.det_order_package_parent) AS packages_view_detail GROUP BY order_id) AS packages_view
+WHERE `order_id` = '2426742742131';

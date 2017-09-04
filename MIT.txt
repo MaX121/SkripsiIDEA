@@ -4,7 +4,7 @@ Scenario.name = DHN NDH MIT Simulation
 Scenario.simulateConnections = false
 Scenario.updateInterval = 0.1
 Scenario.nrofHostGroups = 1
-Scenario.endTime = 16981816
+Scenario.endTime = 342915
 
 # transmitSpeed : transmit speed of the interface (bytes per second)
 # transmitRange : range of the interface (meters)
@@ -29,10 +29,10 @@ Group.nrofInterfaces = 1
 Group.interface1 = btInterface
 Group.speed = 60, 60
 Group.msgTtl = 1000
-Group.nrofHosts = 97
+Group.nrofHosts = 98
 Group1.groupID = G
 Group.router = DecisionEngineRouter
-DecisionEngineRouter.decisionEngine = [EpidemicKeyExchange; EpidemicRouterRevised;]
+DecisionEngineRouter.decisionEngine = EpidemicRouterRevised
 
 # Creation interval in seconds (one new message every 2500 seconds)
 # Hosts : Range of message source/destination addresses [97 Nodes]
@@ -43,12 +43,12 @@ Events.nrof = 2
 Events1.class = MessageEventGenerator
 Events1.interval = 5000,5000
 Events1.size = 4k,4k
-Events1.hosts = 0,96
+Events1.hosts = 0,97
 Events1.prefix = M
 
 # -- Reality/Random Dataset -- #
 Events2.class = StandardEventsReader
-Events2.filePath = RealityConnectionTraceFinal.txt
+Events2.filePath = haggle6-infocom6.csv
 
 MovementModel.warmup = 0
 MovementModel.rngSeed = 1
@@ -56,7 +56,7 @@ MovementModel.worldSize = 2500, 2500
 
 Report.nrofReports = 3
 Report.warmup = 0
-Report.reportDir = [reports/DHN_MIT97_TTL2000; reports/NDH_MIT97_TTL3000]
+Report.reportDir = reports/NDH_INFOCOM_TTL1000;
 Report.report1 = MessageStatsReport
 Report.report2 = KeyConvergenceReport
 Report.report3 = MessageTransactionReport

@@ -1,0 +1,20 @@
+Message stats for scenario DHN NDH MIT Simulation
+sim_time: 342915.1000
+created: 68
+started: 7985
+relayed: 5240
+aborted: 2745
+dropped: 4337
+removed: 0
+delivered: 5240
+delivery_prob: 77.0588
+response_prob: 0.0000
+overhead_ratio: 0.0000
+latency_avg: 12174.5452
+latency_med: 4158.4000
+hopcount_avg: 5.4838
+hopcount_med: 5
+buffertime_avg: 46722.7418
+buffertime_med: 54877.1000
+rtt_avg: NaN
+rtt_med: NaN
